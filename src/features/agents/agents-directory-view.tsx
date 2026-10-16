@@ -27,7 +27,7 @@ import {
   type StatusFilter,
   type ViewMode,
 } from "./agent-utils"
-import { DemoActionButton } from "./demo-action-button"
+import { DemoActionButton } from "@/components/hq/demo-action"
 
 export function AgentsDirectoryView() {
   const router = useRouter()

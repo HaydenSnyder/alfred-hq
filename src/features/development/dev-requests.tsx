@@ -9,7 +9,8 @@ import { useHQ } from "@/components/providers/hq-store"
 import { DataTable, type DataTableColumn } from "@/components/hq/data-table"
 import { EmptyState } from "@/components/hq/states"
 import { SeverityBadge, ToneBadge } from "@/components/hq/status-badge"
-import { DemoOnlyButton, FilterBar, FilterSelect, ScopeChip } from "@/features/projects/shared"
+import { FilterBar, FilterSelect, ScopeChip } from "@/features/projects/shared"
+import { DemoActionButton } from "@/components/hq/demo-action"
 import { approvalStateMeta } from "./dev-meta"
 import { projectIdFromRefs, type DevelopmentData } from "./use-development-data"
 
@@ -160,9 +161,9 @@ export function DevRequests({ data }: { data: DevelopmentData }) {
             {filtered.length} of {requests.length}
           </span>
         </FilterBar>
-        <DemoOnlyButton variant="default">
+        <DemoActionButton variant="default">
           <Plus /> New request
-        </DemoOnlyButton>
+        </DemoActionButton>
       </div>
       <p className="text-xs text-muted-foreground">
         Requests are derived from development tasks and plan or deployment approvals. HQ never calls the Development Gateway.

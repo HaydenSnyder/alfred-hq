@@ -9,7 +9,7 @@ import { useHQ } from "@/components/providers/hq-store"
 import { Panel } from "@/components/hq/panel"
 import { EmptyState } from "@/components/hq/states"
 import { SeverityBadge, ToneBadge } from "@/components/hq/status-badge"
-import { DemoOnlyButton } from "@/features/projects/shared"
+import { DemoActionButton } from "@/components/hq/demo-action"
 import { approvalStateMeta } from "./dev-meta"
 
 /**
@@ -88,12 +88,12 @@ export function PlanReview({
       </ol>
 
       <div className="mt-4 flex flex-wrap items-center gap-2 border-t pt-3">
-        <DemoOnlyButton variant="default">
+        <DemoActionButton variant="default">
           <Check /> Approve plan
-        </DemoOnlyButton>
-        <DemoOnlyButton>
+        </DemoActionButton>
+        <DemoActionButton>
           <MessageSquareWarning /> Request changes
-        </DemoOnlyButton>
+        </DemoActionButton>
         <span className="text-[11px] text-muted-foreground">Demo only — approvals are not executed from HQ.</span>
       </div>
     </Panel>

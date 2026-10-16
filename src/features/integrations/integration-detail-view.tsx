@@ -11,7 +11,7 @@ import { PageHeader } from "@/components/hq/page-header"
 import { Panel, PropertyList } from "@/components/hq/panel"
 import { EmptyState, ErrorState, LoadingState, UnknownState } from "@/components/hq/states"
 import { StatusBadge, ToneBadge } from "@/components/hq/status-badge"
-import { DisabledAction } from "@/features/infrastructure/demo-guards"
+import { DemoActionButton } from "@/components/hq/demo-action"
 import { ConnectionChecklist } from "./connection-checklist"
 import { categoryMeta, modeMeta } from "./integration-meta"
 
@@ -83,9 +83,9 @@ export function IntegrationDetailView({ id }: { id: string }) {
         }
         description={i.description}
         actions={
-          <DisabledAction label={`Connect ${i.provider}`} reason={CONNECT_REASON} variant="default">
+          <DemoActionButton label={`Connect ${i.provider}`} reason={CONNECT_REASON} variant="default">
             <Plug /> Connect
-          </DisabledAction>
+          </DemoActionButton>
         }
       />
 
@@ -206,9 +206,9 @@ export function IntegrationDetailView({ id }: { id: string }) {
           <Panel title="Connection">
             <p className="text-xs text-muted-foreground">{CONNECT_REASON}.</p>
             <div className="mt-3">
-              <DisabledAction label={`Connect ${i.provider}`} reason={CONNECT_REASON} className="w-full">
+              <DemoActionButton label={`Connect ${i.provider}`} reason={CONNECT_REASON} className="w-full">
                 <Plug /> Connect {i.provider}
-              </DisabledAction>
+              </DemoActionButton>
             </div>
             <p className="mt-2 text-[11px] text-muted-foreground">Mode: {titleCase(i.mode)}</p>
           </Panel>

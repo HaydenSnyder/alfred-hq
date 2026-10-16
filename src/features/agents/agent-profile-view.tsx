@@ -18,7 +18,7 @@ import { AgentConfigTab } from "./agent-config-tab"
 import { AgentHealthTab } from "./agent-health-tab"
 import { AgentOverviewTab } from "./agent-overview-tab"
 import { AgentTasksTab } from "./agent-tasks-tab"
-import { DemoActionButton } from "./demo-action-button"
+import { DemoActionButton } from "@/components/hq/demo-action"
 
 const crumbs = [{ label: "Agents", href: "/agents" }]
 

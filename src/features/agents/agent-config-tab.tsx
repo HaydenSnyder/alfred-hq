@@ -5,7 +5,7 @@ import { formatCompact, titleCase } from "@/lib/format"
 import type { Agent } from "@/lib/types"
 import { Panel, PropertyList } from "@/components/hq/panel"
 import { ToneBadge } from "@/components/hq/status-badge"
-import { DemoActionButton } from "./demo-action-button"
+import { DemoActionButton } from "@/components/hq/demo-action"
 
 const memoryDescription: Record<Agent["config"]["memoryAccess"], string> = {
   global: "Can read Alfred's global memory",

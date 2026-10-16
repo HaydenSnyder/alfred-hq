@@ -1,16 +1,12 @@
 "use client"
 
-import { toast } from "sonner"
 import { cn } from "@/lib/utils"
 import { toneClasses, type Tone } from "@/lib/status"
 import type { Project, Scope } from "@/lib/types"
-import { Button } from "@/components/ui/button"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group"
-import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip"
 import { ToneBadge } from "@/components/hq/status-badge"
 
-export const DEMO_DISABLED_REASON = "Disabled in prototype — no live connection"
 
 export const projectStatusMeta: Record<Project["status"], { label: string; tone: Tone }> = {
   planning: { label: "Planning", tone: "neutral" },
@@ -52,42 +48,6 @@ export function ProgressBar({ value, className, showLabel = true }: { value: num
       {showLabel && <span className="w-9 shrink-0 text-right text-xs text-muted-foreground tabular">{v}%</span>}
     </div>
   )
-}
-
-/**
- * A control that would perform a real action. Always disabled in the
- * prototype, with an explanatory tooltip.
- */
-export function DemoOnlyButton({
-  children,
-  variant = "outline",
-  size = "sm",
-  reason = DEMO_DISABLED_REASON,
-  className,
-}: {
-  children: React.ReactNode
-  variant?: "default" | "outline" | "secondary" | "ghost"
-  size?: "sm" | "default" | "xs"
-  reason?: string
-  className?: string
-}) {
-  return (
-    <Tooltip>
-      <TooltipTrigger asChild>
-        {/* Wrapper keeps the tooltip reachable while the button is disabled. */}
-        <span tabIndex={0} className="inline-flex rounded-lg outline-none focus-visible:ring-2 focus-visible:ring-ring/50">
-          <Button variant={variant} size={size} disabled aria-disabled className={className}>
-            {children}
-          </Button>
-        </span>
-      </TooltipTrigger>
-      <TooltipContent>{reason}</TooltipContent>
-    </Tooltip>
-  )
-}
-
-export function demoActionToast() {
-  toast("Demo action — nothing was executed")
 }
 
 /** Small scope chip (Personal / company short name / Global). */

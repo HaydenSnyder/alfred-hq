@@ -16,7 +16,8 @@ import { EmptyState, ErrorState, LoadingState } from "@/components/hq/states"
 import { StatusBadge, ToneBadge, VerificationBadge } from "@/components/hq/status-badge"
 import { Timeline, eventTypeMeta, type TimelineItem } from "@/components/hq/event-timeline"
 import { Button } from "@/components/ui/button"
-import { DemoOnlyButton, ScopeChip } from "@/features/projects/shared"
+import { ScopeChip } from "@/features/projects/shared"
+import { DemoActionButton } from "@/components/hq/demo-action"
 import { SourceCard } from "./source-card"
 import { sourceTypeMeta, stageMeta, stageOrder } from "./research-meta"
 
@@ -117,9 +118,9 @@ export function ResearchDetailView({ id }: { id: string }) {
           </span>
         }
         actions={
-          <DemoOnlyButton variant="default">
+          <DemoActionButton variant="default">
             <Upload /> Publish to Brain
-          </DemoOnlyButton>
+          </DemoActionButton>
         }
       />
 

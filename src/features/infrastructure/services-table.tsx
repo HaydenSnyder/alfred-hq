@@ -9,7 +9,7 @@ import { Panel } from "@/components/hq/panel"
 import { StatusBadge } from "@/components/hq/status-badge"
 import { UptimeBar } from "@/components/hq/uptime-bar"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
-import { DisabledAction } from "./demo-guards"
+import { DemoActionButton } from "@/components/hq/demo-action"
 import { isVerified } from "./health-glyph"
 
 function Latency({ ms }: { ms?: number }) {
@@ -33,9 +33,9 @@ function LastCheck({ at }: { at?: string }) {
 
 function RestartControl({ service }: { service: ServiceHealth }) {
   return (
-    <DisabledAction label={`Restart ${service.name}`} variant="ghost" size="xs">
+    <DemoActionButton label={`Restart ${service.name}`} variant="ghost" size="xs">
       <RotateCcw /> Restart
-    </DisabledAction>
+    </DemoActionButton>
   )
 }
 

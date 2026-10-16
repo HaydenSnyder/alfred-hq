@@ -13,7 +13,8 @@ import { EmptyState, ErrorState, LoadingState, UnknownState } from "@/components
 import { StatusBadge, ToneBadge } from "@/components/hq/status-badge"
 import { Timeline, eventTypeMeta, type TimelineItem } from "@/components/hq/event-timeline"
 import { Button } from "@/components/ui/button"
-import { DemoOnlyButton, ProgressBar, ProjectStatusBadge, ScopeChip } from "@/features/projects/shared"
+import { ProgressBar, ProjectStatusBadge, ScopeChip } from "@/features/projects/shared"
+import { DemoActionButton } from "@/components/hq/demo-action"
 import { TaskExplorer } from "@/features/projects/task-explorer"
 import { eventsForProject } from "@/features/projects/project-utils"
 import { prStateMeta, testStatusMeta } from "./dev-meta"
@@ -145,12 +146,12 @@ export function DevProjectDetailView({ id }: { id: string }) {
             <Button asChild size="sm" variant="ghost">
               <Link href={`/projects/${project.id}`}>Project overview</Link>
             </Button>
-            <DemoOnlyButton>
+            <DemoActionButton>
               <Play /> Run tests
-            </DemoOnlyButton>
-            <DemoOnlyButton>
+            </DemoActionButton>
+            <DemoActionButton>
               <Rocket /> Deploy
-            </DemoOnlyButton>
+            </DemoActionButton>
           </>
         }
       />

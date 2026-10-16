@@ -84,3 +84,11 @@ export function inCompanyContext(scope: Scope, ctx: string): boolean {
   if (ctx === "personal") return scope.kind === "personal" || scope.kind === "global"
   return scope.kind === "company" && scope.companyId === ctx
 }
+
+/**
+ * Operational records scoped `global` stay visible in every company context
+ * (a Photon outage matters whichever company is selected).
+ */
+export function visibleInContext(scope: Scope, ctx: string): boolean {
+  return scope.kind === "global" || inCompanyContext(scope, ctx)
+}

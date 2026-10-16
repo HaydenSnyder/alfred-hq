@@ -10,7 +10,7 @@ import type { Agent, Approval, Company } from "@/lib/types"
 import { useHQ } from "@/components/providers/hq-store"
 import { AgentAvatar } from "@/components/hq/avatars"
 import { SeverityBadge, ToneBadge } from "@/components/hq/status-badge"
-import { DisabledAction } from "@/features/infrastructure/demo-guards"
+import { DemoActionButton } from "@/components/hq/demo-action"
 import { LinkedRecordChips } from "./linked-records"
 import type { RecordIndex } from "./record-index"
 
@@ -132,12 +132,12 @@ export function ApprovalCard({
       {a.state === "pending" && (
         <div className="mt-auto space-y-2 border-t pt-3">
           <div className="grid grid-cols-2 gap-2 sm:flex sm:justify-end">
-            <DisabledAction label={`Reject: ${a.title}`} reason={APPROVAL_DISABLED_REASON} variant="outline">
+            <DemoActionButton label={`Reject: ${a.title}`} reason={APPROVAL_DISABLED_REASON} variant="outline">
               <X /> Reject
-            </DisabledAction>
-            <DisabledAction label={`Approve: ${a.title}`} reason={APPROVAL_DISABLED_REASON} variant="default">
+            </DemoActionButton>
+            <DemoActionButton label={`Approve: ${a.title}`} reason={APPROVAL_DISABLED_REASON} variant="default">
               <Check /> Approve
-            </DisabledAction>
+            </DemoActionButton>
           </div>
           <p className="text-[11px] text-muted-foreground sm:text-right">{APPROVAL_DISABLED_REASON}. Decide through existing Alfred channels.</p>
         </div>
