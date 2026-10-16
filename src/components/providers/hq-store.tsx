@@ -54,6 +54,7 @@ interface HQStore {
   localSessions: Session[]
   localMessages: Message[]
   addLocalSession: (session: Session) => void
+  updateLocalSession: (id: string, patch: Partial<Session>) => void
   addLocalMessage: (message: Message) => void
   clearLocalData: () => void
 
@@ -127,6 +128,10 @@ export function HQStoreProvider({ children }: { children: React.ReactNode }) {
   const toggleInspector = useCallback(() => setInspector((s) => ({ ...s, open: !s.open })), [])
 
   const addLocalSession = useCallback((session: Session) => setLocalSessions((s) => [session, ...s]), [])
+  const updateLocalSession = useCallback(
+    (id: string, patch: Partial<Session>) => setLocalSessions((list) => list.map((s) => (s.id === id ? { ...s, ...patch } : s))),
+    []
+  )
   const addLocalMessage = useCallback((message: Message) => {
     setLocalMessages((m) => [...m, message])
     setLocalSessions((list) =>
@@ -164,6 +169,7 @@ export function HQStoreProvider({ children }: { children: React.ReactNode }) {
       localSessions,
       localMessages,
       addLocalSession,
+      updateLocalSession,
       addLocalMessage,
       clearLocalData,
       preferences,
@@ -185,6 +191,7 @@ export function HQStoreProvider({ children }: { children: React.ReactNode }) {
       localSessions,
       localMessages,
       addLocalSession,
+      updateLocalSession,
       addLocalMessage,
       clearLocalData,
       preferences,

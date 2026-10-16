@@ -61,7 +61,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
             className={cn(
               "min-w-0 flex-1",
               fullBleed
-                ? "flex flex-col overflow-hidden pb-14 md:pb-0"
+                ? cn("flex flex-col overflow-hidden md:pb-0", !pathname.startsWith("/chat/") && "pb-14")
                 : "scrollbar-thin overflow-y-auto px-4 pt-5 pb-24 md:px-6 md:pt-6 md:pb-10 xl:px-8",
               preferences.density === "compact" && "text-[13px]"
             )}

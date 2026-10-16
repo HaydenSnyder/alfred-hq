@@ -29,6 +29,8 @@ export function MobileTabBar() {
   const { setMobileNavOpen } = useHQ()
   const tabs = mobileTabs.map((key) => navItems.find((n) => n.key === key)!).filter(Boolean)
   const shortLabel: Record<string, string> = { command: "Home", chat: "Chat", agents: "Agents", notifications: "Inbox" }
+  // An open conversation is full-screen on phones.
+  if (pathname.startsWith("/chat/")) return null
 
   return (
     <nav
