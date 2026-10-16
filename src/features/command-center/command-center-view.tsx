@@ -166,7 +166,7 @@ export function CommandCenterView() {
       </div>
 
       <div className="mt-4 grid gap-4 xl:grid-cols-3">
-        <div className="space-y-4 xl:col-span-2">
+        <div className="min-w-0 space-y-4 xl:col-span-2">
           {w.incidents && (
             <Panel title="Open incidents" description="Select to inspect" href="/infrastructure">
               {incidents.length === 0 ? (
@@ -230,7 +230,7 @@ export function CommandCenterView() {
           )}
         </div>
 
-        <div className="space-y-4">
+        <div className="min-w-0 space-y-4">
           {w.approvals && (
             <Panel title="Pending approvals" description="Display only — approvals are not executed from HQ" href="/notifications?tab=approvals">
               {approvals.length === 0 ? (
