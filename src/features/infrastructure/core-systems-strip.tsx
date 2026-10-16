@@ -15,11 +15,11 @@ export function CoreSystemsStrip({ services }: { services: ServiceHealth[] }) {
   const core = CORE_SYSTEMS.map((key) => services.find((s) => s.system === key)).filter((s): s is ServiceHealth => !!s)
 
   return (
-    <Panel title="Core systems" description="Hermes, Photon, Development Gateway, Memory and Research — select to inspect">
+    <Panel title="Core systems" description="Hermes, Photon, Development Gateway, Memory and Research — select to inspect" bodyClassName="@container">
       {core.length === 0 ? (
         <p className="text-xs text-muted-foreground">No core systems are registered with the data source.</p>
       ) : (
-        <ul className="grid grid-cols-1 gap-2 min-[480px]:grid-cols-2 lg:grid-cols-5">
+        <ul className="grid grid-cols-1 gap-2 @md:grid-cols-2 @2xl:grid-cols-3 @4xl:grid-cols-5">
           {core.map((s) => {
             const active = inspector.selection?.kind === "service" && inspector.selection.id === s.id
             return (
@@ -36,7 +36,7 @@ export function CoreSystemsStrip({ services }: { services: ServiceHealth[] }) {
                     active && "border-foreground/25 bg-surface-2"
                   )}
                 >
-                  <span className="flex items-center justify-between gap-2">
+                  <span className="flex min-w-0 items-center justify-between gap-2">
                     <span className="flex min-w-0 items-center gap-2">
                       <HealthGlyph status={s.status} />
                       <span className="truncate text-sm font-medium">{s.name}</span>
